@@ -1,6 +1,6 @@
 # AGENT TASK — pureport-17ultra: HyperOS 4 Port + Kernel UFO-0.1 (joyeuse / miatoll)
 
-Kamu adalah senior Android ROM port engineer + kernel builder. **Kerjakan HANYA pekerjaan ini.** Jika ada error, PERBAIKI DULU sebelum lanjut. JANGAN lompat tugas lain. **JANGAN BUILD KERNEL DI SESI INI** — tugas sesi ini adalah menyiapkan & melaksanakan plan via sesi kerja (user). Laporkan jujur — jangan mengarang hasil; TANYA keputusan yang butuh user (bukan decision agen).
+Kamu adalah senior Android ROM port engineer + kernel builder. **Kerjakan HANYA pekerjaan ini.** Jika ada error, PERBAIKI DULU sebelum lanjut. JANGAN lompat tugas lain. **Build kernel boleh dilakukan di sesi ini (ini sesi kerja)** — tapi tetap laporkan tiap fase ke user sebelum flash; keputusan-keputusan besar tanyakan ke user, jangan kerjakan tanpa konfirmasi. Laporkan jujur — jangan mengarang hasil.
 
 > 🎯 **Keputusan terbaru user (14 Nov 2026):**
 > UFO-0.1 = **BUILD BARU DARI AWAL (from scratch)** — BUKAN sekadar rename Synthetica-3.2.
@@ -76,7 +76,7 @@ D. Cek Telegram @Miatoll + @dizasportschat laporan terbaru
 **SUMBER DATA (semua sudah di PC kamu):**
 1. Clone tree: `git clone https://github.com/Saamitk/kernel_xiaomi_sm6250-switchoff` @ `c1e6f795b557b7bf92220c91f05a42b456de7a74`
 2. Extract source-kit `2026-11-13_SOURCE-KIT-Synthetica-Rollercoaster-UFO-46-berkas.zip`
-3. Baca README-SOURCE-KIT.txt + docs/ — ikuti pola recipe (`build_synthetica32_final.py` sebagai blueprint, BUKAN salin persis — UFO-0.1 = build mama kamu sendiri)
+3. Baca README-SOURCE-KIT.txt + docs/ — ikuti pola recipe (`build_synthetica32_final.py` sebagai blueprint, BUKAN salin persis — UFO-0.1 = build kamu sendiri)
 4. **Steps**:
    a. Checkout tree `c1e6f795`
    b. Clone KSU Next @ `d86ff76` (panggil `ksu.sh` / ikuti recipe — jangan improvisasi)

@@ -20,8 +20,38 @@ Kamu adalah senior Android ROM port engineer + kernel builder. **Kerjakan HANYA 
 | nezha_global-ota_full-OS4.0.0.8.XPAMIXM-user-17.0-55863f99f3.zip (donor, HyperOS 4 / Android 17, Xiaomi 17 Ultra) | 9,7 GB | SHA-256 `9e8c7795e9089787f33b8199208a0fa2defd90aceb96ddd002f1f5dd549d6cbe` |
 | miui_JOYEUSEGlobal_V14.0.3.0.SJZMIXM_df17e3fabf_12.0.zip (stock, Android 12 Recovery) | 2,9 GB | MD5 `df17e3fabf2284cc28efe8d10d012007` |
 | HyperOS-4_MIATOLL-STABLE-dizasports.zip (port komunitas @dizasports — BUKTI boot di joyeuse) | 4,5 GB | belum ada hash resmi; hitung sendiri: `sha256sum` |
-- Lokasi file: `~/Downloads/`
+- Lokasi file: `~/ROM-Tools/pureport-17ultra-WORK-2026-11-14.tar` → ekstrak dulu: `tar -xf ~/ROM-Tools/pureport-17ultra-WORK-2026-11-14.tar -C /home/puresaturday/ROM-Tools "pureport-17ultra-WORK/ROMs/<nama>.zip"` (~/Downloads dibersihkan 14 Nov 2026)
 - Arsip synthetic kernel: `~/ROM-Tools/synthetica-arsip/SYNTHETICA-KERNEL-ARSIP-LENGKAP-2026-11-13-20261113T155641Z-1-001.zip`
+
+## CATATAN BUG & RISET PORT DIZA (HyperOS 4 miatoll) — WAJIB DIBACA SEBELUM BUILD
+
+Source: post resmi Telegram **@Miatoll** (update channel), port author **@dizasports** (dibaca Nov 2026):
+
+- **HyperOS 4.0.0.6 Beta** — bug: **Face Unlock** + **Vibration**; notes: KernelSU Next v3.2.0 spoofed; launcher diganti modded (stock buggy); lock-screen personalization crash → workaround: Settings > Personalization; search bar aneh → Home Screen Settings > More > Home Search > Compact; "device is 6 years old".
+- **HyperOS 4.0.0.32 Beta** — ported from Xiaomi 17; build "90% stable"; perlu ±1 hari settle; Play Store included; bug: **Face Unlock**.
+- **HyperOS 4.0.0.32 Beta HOTFIX** — Smart Home app dibuang; soft reboot **FIXED**; RIL + glass effect OK; camera "incompatible" → pakai GCam; bug: **Face Unlock**.
+- **HyperOS 4.0.17.0 Semi-Stable** — paling cocok dengan file user (`HyperOS-4_MIATOLL-STABLE-dizasports.zip`, 4,5 GB, "ported from Xiaomi 18 Pro Max"): KSU Next v3.2.0 spoofed; **Play Store included**; parallel animations a la flagship; **NO camera app — wajib GCam atau Leica Camera Module**; bug: **Face Unlock** ("Other than that? Share with us" = tidak ada laporan bug lain). Credits: Nezuko (vendor+kernel), Ram1n, Xiima (patches), Venusidk (vulkan), OBITO XD (overlays).
+- **PitchBlack Recovery Project** (@dizasports, untuk MIUI/HyperOS ports): bring-up FBEv2; touch di layar aftermarket butuh charger saat recovery.
+- **HyperOS 4 | Joyeuse Beta** (@itsxiima, 19.08.2026, ported from **nezha**): bug: **vibration** — bukan rilis Diza; hanya referensi terkait donor nezha.
+
+**Bug yang tercatat untuk base file STABLE (kemungkinan besar ±4.0.17.0):**
+1. **Face Unlock** — tidak berfungsi. JANGAN "diperbaiki" (face HAL vendor tidak portable lintas SoC tanpa source asli).
+2. **Camera app bawaan** — tidak ada. Workaround resmi: **GCam / Leica Camera Module** (agen Fase 0 pilih yang cocok SM7125).
+3. **Vibration** — bug di Beta 0.0.6 (vendor haptics HAL); belum terkonfirmasi di STABLE → **uji motor haptics di first boot**.
+4. **Soft reboot** — fixed di HOTFIX 0.0.32+; tetap uji stabilitas stress.
+5. **Settle period** — ±1 hari pertama pemakaian sebelum performa normal (bukan bug).
+6. **Root** — **KernelSU Next v3.2.0 spoofed**, BUKAN Magisk (Play Integrity).
+7. **Vulkan** — patch Venusidk khusus port (jangan dihapus).
+8. **Vendor+kernel** — port memakai kombinasi "Nezuko" (bukan Stormbreaker/crDroid repo) — analisis ini di Fase 0.
+9. **Launcher** — beberapa build mengganti launcher stock (buggy) dengan modded; versi STABLE diduga stock + parallel animations.
+10. **Wipe** — selalu Wipe Cache & Dalvik + Format Data saat flash.
+
+**Verifikasi wajib di zip kamu (Fase 0):**
+A. Extract `ro.build.display.id`, `ro.product.device`, `ro.product.model`, `ro.vendor...` dari `*/build.prop` dalam zip.
+B. Bandingkan `ro.build.ota...` donor nezha vs dizasports (duga: donor = OS4.0.0.8 XPAMIXM nezha murni; STABLE kamu mungkin base 18 Pro Max — **JANGAN dianggap sama**).
+C. Catat init/service list (QTI haptics, camera provider, face HAL) — penyebab bug 1 & 3.
+D. Cek Telegram @Miatoll + @dizasportschat untuk laporan bug TERBARU sebelum flash (channel aktif tiap minggu).
+E. Semua temuan → `FINDINGS.md` (folder `~/ROM-Tools/UFO-0.1-LOG/`).
 
 ## Urutan kerja — TAK BOLEH DILOMPAT
 

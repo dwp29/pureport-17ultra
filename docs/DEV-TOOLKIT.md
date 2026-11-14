@@ -199,3 +199,11 @@ General porting flow:
 2. git identity not set: `git config --global user.name "Name" && git config --global user.email "you@example.com"`
 3. The installers (~1.9GB) in `~/downloads_tmp` were deleted after extraction.
 4. The "Default Project" folder (where this chat ran) was left untouched.
+
+## Synthetica kernel (facts — from arsip /home/puresaturday/ROM-Tools/synthetica-arsip)
+- Base tree: `Saamitk/kernel_xiaomi_sm6250-switchoff` @ `c1e6f795b557b7bf92220c91f05a42b456de7a74` (4.14.357-openela)
+- KSU Next: `KernelSU-Next/KernelSU-Next` @ `d86ff76cd7f8efab5fb7ebfd6ab7ef6b3b3b9f50` (Rollercoaster 34000, manual hook, `CONFIG_KSU=y`)
+- Toolchain: Neutron Clang 18.0.0 (06092026, SHA-256 531083928c8e37f6b31e324dbfd0b5a8323f989b1c57ff2c1368b889b5b1bd30)
+- 8 patch inti (MGLRU, UCLAMP+WALT, KSU seccomp-preserve, KSU exec-fd); Module.symvers 12.236 simbol identik 3.0=3.1=3.2 (hanya CONFIG_LOCALVERSION berubah)
+- Manager identity: net.ember.labs; AVB fix helper `tools/fix-avb --if-unsigned` untuk A17 stock unsigned AVBf/AVB0
+- CI: `.github/workflows/synthetica32-final.yml` (run 42617952429) — UFO-0.1 = rebuild dengan `CONFIG_LOCALVERSION="-UFO-0.1"`

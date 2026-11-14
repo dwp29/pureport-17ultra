@@ -65,10 +65,23 @@ E. Semua temuan → `FINDINGS.md` (folder `~/ROM-Tools/UFO-0.1-LOG/`).
 5. Output: `FINDINGS.md` (dalam folder log — lihat Fase 3)
 
 ### FASE 1 — KERNEL "UFO-0.1"
-1. Inspeksi `~/ROM-Tools/synthetica-arsip/`: ada `03-SOURCE-KIT-DAN-BUILD/2026-11-13_SOURCE-KIT-Synthetica-Rollercoaster-UFO-46-berkas.zip` (+ `05-SOURCE-KIT-Synthetica-3.0-Pengembangan-PRIVAT` dengan `GABUNGKAN.py` untuk reassemble private source). TANYA user: ini base UFO-0.1?
-   - Jika source UFO/Rollercoaster tersedia → build dari itu (toolchain user: clang 18 / Neutron Clang)
-   - Jika tidak → tree `~/ROM-Tools/kernel_joyeuse` (crDroid 16.0, 4.14.357-openela) + `build.sh` (clang 11 pinned) dan NAMAi kernel `UFO-0.1`
-   - JANGAN memaksa clang tertentu — ikuti yang terbukti di tree sumber
+**BASE (fakta terverifikasi dari `SYNTHETICA-3.2-RELEASE-AND-DEV-GUIDE.md` di arsip user):**
+- Kernel tree: **`Saamitk/kernel_xiaomi_sm6250-switchoff` @ `c1e6f795b557b7bf92220c91f05a42b456de7a74`** (4.14.357-openela) — tree yang SAMA dengan sumber Synthetica-3.2
+- KernelSU-Next: `KernelSU-Next/KernelSU-Next` @ `d86ff76cd7f8efab5fb7ebfd6ab7ef6b3b3b9f50` (Rollercoaster 34000, `CONFIG_KSU_MANUAL_HOOK=y`, `CONFIG_KSU=y`)
+- Toolchain: **Neutron Clang 18.0.0** (`06092026`, SHA-256 `531083928c8e37f6b31e324dbfd0b5a8323f989b1c57ff2c1368b889b5b1bd30`)
+- Manager identity: `net.ember.labs` (manager sendiri user)
+- 8 patch inti (MGLRU, UCLAMP+WALT, ksu seccomp preserve, ksu exec-fd, dll.) — JANGAN hilangkan/diubah tanpa alasan
+- `Module.symvers` 12.236 simbol, identik 3.0=3.1=3.2; untuk UFO-0.1 ubah HANYA `CONFIG_LOCALVERSION="-UFO-0.1"` → JANGAN ubah ABI
+- AVB: port `tools/fix-avb --if-unsigned` untuk A17 stock (unsigned AVBf/AVB0)
+- Build recipe user: `build-kit/scripts/build_synthetica32_final.py` (ada di source-kit privat) — pelajari & sesuaikan menjadi "UFO-0.1"; CI workflow `.github/workflows/synthetica32-final.yml`
+- Source-kit di arsip: `01-KERNEL-SEMUA-VERSI/05-SOURCE-KIT-Synthetica-3.0-Pengembangan-PRIVAT` (split parts; `GABUNGKAN.py` untuk reassemble — butuh 4 file `.zip.001..004`; TANYA user apakah parts tersedia untuk di-assemble)
+1. TANYA user (keputusan user, bukan agen):
+   a. Apakah source Synthetica-3.2 (dari `GABUNGKAN.py` + parts, atau clone `Saamitk/kernel_xiaomi_sm6250-switchoff` @ c1e6f795) siap/terinstall di PC ini?
+   b. ABI: pertahankan `Module.symvers` identik (direkomendasikan) → hanya `CONFIG_LOCALVERSION="-UFO-0.1"`
+2. Jika source tersedia → build dari itu; NAMAi kernel `UFO-0.1` (ubah `CONFIG_LOCALVERSION`)
+3. Jika source ABSENT → fallback keterangan: clone `aarch64- Saamitk/kernel_xiaomi_sm6250-switchoff` + apply 8 patch MGLRU/UCLAMP/KSU + KSU @ d86ff76 (kerjaan besar; minta konfirmasi user, JANGAN rework from scratch tanpa izin)
+4. Output: flashable AnyKernel zip `UFO-0.1-miatoll-<tanggal>.zip`; hash SHA-256 dicatat
+5. Catat di BUILD-LOG-KERNEL.txt: tree commit, KSU commit, toolchain, patch list, `.config` diff vs 3.2, Module.symvers identik?
 2. Set nama kernel: `CONFIG_LOCALVERSION` / EXTRAVERSION / `--kernel-version` → **UFO-0.1**; verifikasi `uname -r` konsep (contoh string `4.14.357-openela-UFO-0.1`)
 3. Build via `~/ROM-Tools/kernel_joyeuse/build.sh` (clang 11 pinned, prebuilts sudah terunduh)
 4. Output: flashable AnyKernel zip `UFO-0.1-miatoll-<tanggal>.zip` (di `AnyKernel/`)

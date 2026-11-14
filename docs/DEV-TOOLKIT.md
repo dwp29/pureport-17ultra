@@ -162,7 +162,7 @@ General porting flow:
 
 ### Port ROM default (per 13 Nov 2026)
 - **`MiatollCave/Xiaomi.EU-Miatoll`** (Unlicense) — **DEFAULT** — stable Xiaomi.EU HyperOS miatoll port; branch `main`. Recommended recovery: **OrangeFox R11.3 FbeV2**. Alternative: `iput-object/CaveOfMiatoll` (branches `hyperos-15`/`hyperos-15-cn`/`main`).
-- HOS 4 port porting info: `~/Downloads/HyperOS-4_MIATOLL-STABLE-dizasports.zip` (@dizasports, base Xiaomi 18 Pro Max)
+- HOS 4 port porting info: `HANYA di ~/ROM-Tools/pureport-17ultra-WORK-2026-11-14.tar (ROMs/)HyperOS-4_MIATOLL-STABLE-dizasports.zip` (@dizasports, base Xiaomi 18 Pro Max)
 - Telegram: `@Miatoll`, `@MiatollOfficial`, `@MiatollClouds`, `@miatollcave`, `@miatollcavesupport`
 
 ## F. GitHub / CI
@@ -191,8 +191,8 @@ General porting flow:
 - Qt xcb plugin fix: `libxcb-cursor0` etc. installed (Nov 12 2026) — MIO-KITCHEN previously failed to load the xcb plugin
 
 ## Downloaded ROMs (verified)
-- nezha_global-ota_full-OS4.0.0.8.XPAMIXM-user-17.0-55863f99f3.zip (9,7 GB, donor Xiaomi 17 Ultra, HyperOS 4 / Android 17) — SHA-256 `9e8c7795e9089787f33b8199208a0fa2defd90aceb96ddd002f1f5dd549d6cbe` — `~/Downloads/`
-- miui_JOYEUSEGlobal_V14.0.3.0.SJZMIXM_df17e3fabf_12.0.zip (2,9 GB, stock Recovery Global Stable, Android 12) — MD5 `df17e3fabf2284cc28efe8d10d012007` (official, verified) — `~/Downloads/`
+- nezha_global-ota_full-OS4.0.0.8.XPAMIXM-user-17.0-55863f99f3.zip (9,7 GB, donor Xiaomi 17 Ultra, HyperOS 4 / Android 17) — SHA-256 `9e8c7795e9089787f33b8199208a0fa2defd90aceb96ddd002f1f5dd549d6cbe` — `HANYA di ~/ROM-Tools/pureport-17ultra-WORK-2026-11-14.tar (ROMs/)`
+- miui_JOYEUSEGlobal_V14.0.3.0.SJZMIXM_df17e3fabf_12.0.zip (2,9 GB, stock Recovery Global Stable, Android 12) — MD5 `df17e3fabf2284cc28efe8d10d012007` (official, verified) — `HANYA di ~/ROM-Tools/pureport-17ultra-WORK-2026-11-14.tar (ROMs/)`
 
 ## Notes
 1. The sudo password was typed in chat at your request. Consider changing it and/or clearing chat history.

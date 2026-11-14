@@ -166,12 +166,12 @@ General porting flow:
 - Telegram: `@Miatoll`, `@MiatollOfficial`, `@MiatollClouds`, `@miatollcave`, `@miatollcavesupport`
 
 ## F. GitHub / CI
-- `gh` CLI 2.45.0 installed — **not logged in yet**. Run `gh auth login` (HTTPS + browser) or add the SSH key below
+- `gh` CLI 2.45.0 — **logged in as dwp29** (HTTPS, device-code flow, 14 Nov 2026). git identity set: `xClaudeGptx` / `275995953+dwp29@users.noreply.github.com`
 - SSH key (ed25519) generated: `~/.ssh/id_ed25519.pub`
   → 
   Public key: `[redacted — simpan di private local copy]`
-- git identity still not set: `git config --global user.name "Name" && git config --global user.email "you@example.com"`
-- **No build website / CI exists yet.** GitHub Actions starter workflow created for the kernel — see section E. It only runs after you push to your own fork.
+- git identity **set** (global): `xClaudeGptx` / `275995953+dwp29@users.noreply.github.com`
+- **Repo project: https://github.com/dwp29/pureport-17ultra (public)** — clone di `~/ROM-Tools/pureport-17ultra`. Berisi docs, OpenCode skills, donor-ROM notes, workflow `build-kernel.yml` (trigger manual / tag `kernel-v*`; runner build dari upstream crDroid branch 16.0, artifact .zip di tab Actions → Artifacts)
 
 ## G. Joyeuse kernel (Redmi Note 9 Pro — miatoll family, SD 720G = "atoll" platform)
 - Cloned: `~/ROM-Tools/kernel_joyeuse` — crdroidandroid/android_kernel_xiaomi_sm6250 @ branch **16.0** (shallow, 1.5GB)

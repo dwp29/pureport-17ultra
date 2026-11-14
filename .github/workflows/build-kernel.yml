@@ -1,0 +1,40 @@
+# Build Stormbreaker kernel (miatoll) di GitHub Actions.
+# Catatan: kernel 4.14 gagal build dengan clang >= 12 -> build.sh mengunduh
+# clang 11 pinned (r6443078) + gcc 4.9 prebuilt dari Google toolchain CDN.
+# Trigger manual (workflow_dispatch) atau tag 'kernel-v*'.
+name: build-stormbreaker-kernel
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['kernel-v*']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - name: Clone Stormbreaker kernel (crDroid 16.0)
+        run: git clone --depth=1 -b 16.0 https://github.com/crdroidandroid/android_kernel_xiaomi_sm6250.git kernel
+
+      - name: Install host dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            git zip make bison flex bc rsync cpio \
+            libelf-dev libncurses-dev python3 \
+            openjdk-17-jdk-headless ccache dwarves
+
+      - name: Build kernel (downloads pinned clang 11 prebuilt, ~1.5 GB)
+        working-directory: kernel
+        run: ./build.sh
+
+      - name: Upload flashable AnyKernel zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: stormbreaker-miatoll-${{ github.run_number }}
+          path: kernel/AnyKernel/*.zip
+          if-no-files-found: error

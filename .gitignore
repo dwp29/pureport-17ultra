@@ -1,0 +1,24 @@
+# ROM / firmware artifacts (never commit)
+*.img
+*.bin
+*.zip
+*.apk
+*.7z
+*.br
+*.payload
+payload_dump/
+out/
+AnyKernel/
+*.factoryfs*
+super.img
+*.elf
+
+# Toolchain & venvs
+.venv/
+venv/
+kernel-clang/
+prebuilts/
+
+# OS/editor
+.DS_Store
+*.swp

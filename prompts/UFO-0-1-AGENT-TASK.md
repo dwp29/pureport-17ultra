@@ -118,6 +118,9 @@ UFO-0.1-LOG/
 - CI yang ada: `.github/workflows/build-kernel.yml` — boleh dipakai untuk "clean build check"
 
 ## ATURAN KERAS
+0. SEBELUM FASE 1 (dan sebagai bagian FASE 0), WAJIB BACA:
+   `~/ROM-Tools/synthetica-arsip/SYNTHETICA-KERNEL-ARSIP-LENGKAP-2026-11-13/04-DOKUMEN-MD-CATATAN/01-DOKUMEN-MD-Synthetica-dan-Kernel/SYNTHETICA-3.2-RELEASE-AND-DEV-GUIDE.md`
+   (Fakta kernel Synthetica-3.2 = base UFO-0.1; jangan kerja dari dugaan)
 1. Error → langsung betulkan; JANGAN tinggalkan job gara-gara satu error
 2. Jangan ganti task — fase selesai → lapor → fase berikut
 3. vbmeta/AVB hanya unlocked; JANGAN RELOCK bootloader (brick permanen di custom/port ROM)

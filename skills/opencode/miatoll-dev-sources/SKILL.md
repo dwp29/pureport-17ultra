@@ -43,6 +43,7 @@ Devices: **joyeuse** (Note 9 Pro Global), curtana (Note 9S), excalibur (Note 9 P
 - `Xiaomi-SD720G-Devices/android_kernel_xiaomi_sm6250` — `thirteen` (build.sh → "RedCherry", cust_defconfig)
 - `Klozz/android_kernel_xiaomi_sm7125` — `Yuki-inline-rebase`, inline encryption, CAF rebase LA.UM.9.1
 - `Saamitk/kernel_xiaomi_SM6250_SKYNET` — SkyNet kernel
+- `Saamitk/kernel_xiaomi_sm6250-switchoff` @ `c1e6f795` — **BASE Synthetica-3.2 & UFO-0.1** (4.14.357-openela, Neutron Clang 18, KSU Next d86ff76 manual hook, Module.symvers 12.236 simbol)
 - `Abhishek001konni/kernel_xiaomi_sm6250` — Forza kernel (`4.14-inline`)
 - `AntonIXO/SailfishOS-Miatoll-Kernel` — SailfishOS kernel (`sailfish`)
 - `ProjectVelvet/kernel_xiaomi_sm6250` — Velvet Kernel v4.14.349-OpenELA

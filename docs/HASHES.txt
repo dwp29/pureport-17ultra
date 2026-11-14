@@ -1,0 +1,11 @@
+# Verifikasi integritas semua ROM yang di-download (Nov 2026)
+# Format: <hash>  <filename>
+
+# Recovery Full ROM (Global Stable V14.0.3.0.SJZMIXM) — official, MD5 verified
+md5  df17e3fabf2284cc28efe8d10d012007  miui_JOYEUSEGlobal_V14.0.3.0.SJZMIXM_df17e3fabf_12.0.zip  (2,9 GB)
+
+# Donor ROM (nezha, HyperOS 4 / Android 17, official Xiaomi CDN) — SHA-256 verified
+sha256  9e8c7795e9089787f33b8199208a0fa2defd90aceb96ddd002f1f5dd549d6cbe  nezha_global-ota_full-OS4.0.0.8.XPAMIXM-user-17.0-55863f99f3.zip  (9,7 GB)
+
+# HOS 4 community port (@dizasports) — belum diverifikasi (unduhan sebelumnya)
+sha256  (cek: sha256sum HyperOS-4_MIATOLL-STABLE-dizasports.zip)  HyperOS-4_MIATOLL-STABLE-dizasports.zip  (4,5 GB)

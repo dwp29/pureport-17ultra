@@ -10,8 +10,10 @@ Kamu adalah senior Android ROM port engineer + kernel builder. **Kerjakan HANYA 
 - Tool utama terpasang: fastboot 37, platform-tools adb, MIO-KITCHEN (unpack/repack payload/super/erofs/ext4),
   payload-dumper-go, lpunpack/lpdump/lpmake, jadx, apktool, brotli/zstd/lz4/xz, simg2img, erofs-utils, binwalk,
   Ollama, OpenCode, git, aarch64-linux-gnu-gcc
-- **Kernel 4.14 TIDAK BISA di-build dengan clang ≥ 12**; wajib clang 11 pinned (r6443078) + gcc 4.9 prebuilt.
-  Jalankan: `bash ~/ROM-Tools/pureport-17ultra/scripts/bootstrap.sh`
+- **Toolchain tergantung tree sumber**:
+  - crDroid 16.0 tree → `build.sh` mengunduh clang 11 pinned (r6443078) + gcc 4.9 — clang ≥12 GAGAL di tree ini.
+  - Tree buatan user (Synthetica/Rollercoaster-UFO) → **clang 18 / Neutron Clang** (sudah terbukti di arsip; `.kernel work`).
+  - `bash ~/ROM-Tools/pureport-17ultra/scripts/bootstrap.sh` hanya untuk jalur crDroid
 - Kernel build Stormbreaker pernah sukses (out/arch/arm64/boot/Image.gz + AnyKernel zip) di `~/ROM-Tools/kernel_joyeuse`
 
 ## Bahan (integritas WAJIB dicek dulu)
@@ -63,8 +65,10 @@ E. Semua temuan → `FINDINGS.md` (folder `~/ROM-Tools/UFO-0.1-LOG/`).
 5. Output: `FINDINGS.md` (dalam folder log — lihat Fase 3)
 
 ### FASE 1 — KERNEL "UFO-0.1"
-1. Inspeksi `~/ROM-Tools/synthetica-arsip/`: apakah ada SOURCE Synthetica-3.2?
-   - Jika hanya prebuilt zip tanpa source → **TIDAK BISA** build dari situ; gunakan tree `~/ROM-Tools/kernel_joyeuse` (crDroid 16.0, 4.14.357-openela, defconfig `vendor/xiaomi/miatoll_defconfig`) dan NAMAi kernel `UFO-0.1`
+1. Inspeksi `~/ROM-Tools/synthetica-arsip/`: ada `03-SOURCE-KIT-DAN-BUILD/2026-11-13_SOURCE-KIT-Synthetica-Rollercoaster-UFO-46-berkas.zip` (+ `05-SOURCE-KIT-Synthetica-3.0-Pengembangan-PRIVAT` dengan `GABUNGKAN.py` untuk reassemble private source). TANYA user: ini base UFO-0.1?
+   - Jika source UFO/Rollercoaster tersedia → build dari itu (toolchain user: clang 18 / Neutron Clang)
+   - Jika tidak → tree `~/ROM-Tools/kernel_joyeuse` (crDroid 16.0, 4.14.357-openela) + `build.sh` (clang 11 pinned) dan NAMAi kernel `UFO-0.1`
+   - JANGAN memaksa clang tertentu — ikuti yang terbukti di tree sumber
 2. Set nama kernel: `CONFIG_LOCALVERSION` / EXTRAVERSION / `--kernel-version` → **UFO-0.1**; verifikasi `uname -r` konsep (contoh string `4.14.357-openela-UFO-0.1`)
 3. Build via `~/ROM-Tools/kernel_joyeuse/build.sh` (clang 11 pinned, prebuilts sudah terunduh)
 4. Output: flashable AnyKernel zip `UFO-0.1-miatoll-<tanggal>.zip` (di `AnyKernel/`)

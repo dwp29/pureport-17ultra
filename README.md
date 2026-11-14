@@ -50,10 +50,15 @@ skills/opencode/    # OpenCode skills project-specific (rom-porting, miatoll-dev
 ## Quick start untuk contributor
 
 ```bash
-git clone https://github.com/<user>/pureport-17ultra.git
+git clone https://github.com/dwp29/pureport-17ultra.git
 cd pureport-17ultra
 less docs/DEV-TOOLKIT.md   # environment & tools di mesin pengembang
+bash scripts/bootstrap.sh  # clone kernel (crDroid 16.0) + clang/gcc prebuilt + AnyKernel3 + build.sh
 ```
+
+Hasil: `~/ROM-Tools/kernel_joyeuse/out/arch/arm64/boot/Image.gz` + zip flashable di `~/ROM-Tools/kernel_joyeuse/AnyKernel/`.
+
+CI: tab **Actions** → `build-stormbreaker-kernel` → **Run workflow** → download artifact zip Flashable AnyKernel.
 
 Local toolchain (Linux Mint 22.3): platform-tools (fastboot 37), MIO-KITCHEN, payload-dumper-go, lpunpack, jadx, apktool, clang 11 pinned + gcc 4.9 prebuilts, Ollama (lokal), OpenCode (agent CLI with free models).
 

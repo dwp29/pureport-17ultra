@@ -25,8 +25,8 @@ Project riset & porting: mempelajari cara port HyperOS 4 ke device **miatoll fam
 | Tahap | Status |
 |---|---|
 | Riset & device tree index | ✅ `skills/opencode/miatoll-dev-sources` |
-| Donor ROM nezha download (CDN resmi Xiaomi) | ✅ selesai (SHA-256 diverifikasi lokal) |
-| Stock firmware joyeuse V14.0.3.0.SJZMIXM | ⏳ mifirm (multi-mirror, lambat) |
+| Donor ROM nezha download (CDN resmi Xiaomi) | ✅ selesai (SHA-256 `9e8c7795…d6cbe` — verified) |
+| Stock firmware joyeuse V14.0.3.0.SJZMIXM | ✅ **terdownload** (2,9 GB, Recovery, MD5 df17e3fabf2284cc28efe8d10d012007 — verified) |
 | Payload extraction nezha → super/boot/dtbo | ⏳ `payload-dumper-go` + `lpunpack` + MIO-KITCHEN |
 | Build kernel (4.14, clang 11 pinned) | ✅ lokal — Stormbreaker `AnyKernel` zip built (`skills/opencode/joyeuse-kernel`) |
 | Port dry-run + vbmeta/flash test | ⏳ |

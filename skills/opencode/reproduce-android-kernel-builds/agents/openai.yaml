@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reproduce Android Kernel Builds"
+  short_description: "Build or qualify Android kernels, GKI LKMs, and rollback"
+  default_prompt: "Use $reproduce-android-kernel-builds to select the reproduced-source, official-provider-repack, or community-prebuilt path and establish validation, migration, and rollback gates for this authorized device."

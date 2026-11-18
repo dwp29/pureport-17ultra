@@ -42,8 +42,10 @@ Port ROM **full** dari donor *different device* (nezha → joyeuse) **tidak bisa
 ## Struktur repo
 
 ```
-docs/               # DEV-TOOLKIT.md, porting notes (sanitized)
+docs/               # DEV-TOOLKIT.md, porting notes, SKILL-RESEARCH-*.md (riset skill AI)
 skills/opencode/    # OpenCode skills project-specific (rom-porting, miatoll-dev-sources, kernel, flash tools)
+agents/             # Portable agent skills (12 SKILL.md) — bisa dipakai di agent mana pun, lihat agents/README.md
+extern/             # Salinan bersih repo pihak ketiga untuk studi — atribusi + lisensi di ATTRIBUTION.md
 .github/workflows/  # CI contoh: build Stormbreaker kernel di GitHub Actions
 ```
 
